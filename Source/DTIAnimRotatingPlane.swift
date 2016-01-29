@@ -50,7 +50,7 @@ class DTIAnimRotatingPlane: DTIAnimProtocol {
     func startActivity() {
         self.owner.addSubview(self.spinnerView)
         
-        var anim = CAKeyframeAnimation()
+        let anim = CAKeyframeAnimation()
         anim.keyPath = "transform"
         anim.removedOnCompletion = false
         anim.repeatCount = HUGE

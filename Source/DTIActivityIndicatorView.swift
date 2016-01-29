@@ -40,7 +40,7 @@ public class DTIActivityIndicatorView: UIView {
         super.init(frame: frame);
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -89,7 +89,7 @@ public class DTIActivityIndicatorView: UIView {
             currentAnimation!.needLayoutSubviews()
         }
     }
-
+    
     override public func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
@@ -97,9 +97,9 @@ public class DTIActivityIndicatorView: UIView {
             let context = UIGraphicsGetCurrentContext()
             CGContextSaveGState(context)
             
-            var arrayOfDashLength: [CGFloat] = [2.0, 2.0]
+            let arrayOfDashLength: [CGFloat] = [2.0, 2.0]
             CGContextSetStrokeColorWithColor(context, self.indicatorColor.CGColor)
-            var dash = { (phase: CGFloat, lengths: UnsafePointer<CGFloat>, count: Int) -> Void in
+            let dash = { (phase: CGFloat, lengths: UnsafePointer<CGFloat>, count: Int) -> Void in
                 CGContextSetLineDash(context, phase, lengths, count)
             }
             dash(0.0, arrayOfDashLength, arrayOfDashLength.count)
@@ -131,7 +131,7 @@ public class DTIActivityIndicatorView: UIView {
         currentAnimation!.setUp()
         currentAnimation!.startActivity()
     }
-
+    
     public func stopActivity(animated: Bool) {
         if (!self.activityStarted) {
             return
@@ -140,10 +140,10 @@ public class DTIActivityIndicatorView: UIView {
         self.activityStarted = false;
         currentAnimation!.stopActivity(animated)
     }
-
+    
     public func stopActivity() {
         self.stopActivity(true)
     }
     
-
+    
 }

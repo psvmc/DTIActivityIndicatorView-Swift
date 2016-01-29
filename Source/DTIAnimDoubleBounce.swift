@@ -73,7 +73,7 @@ class DTIAnimDoubleBounce: DTIAnimProtocol {
         ]
         aniScale1.duration = self.animationDuration
         
-        var aniScale2 = CAKeyframeAnimation()
+        let aniScale2 = CAKeyframeAnimation()
         aniScale2.keyPath = "transform.scale"
         aniScale2.values = [0, 1, 0]
         aniScale2.removedOnCompletion = false
